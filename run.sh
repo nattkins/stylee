@@ -11,16 +11,8 @@
 # #install ffmpeg to container
 # add-apt-repository -y ppa:jonathonf/ffmpeg-3 2>&1
 # apt-install || exit 1
-#! /bin/bash
 
-mkdir data
-cd data
-wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
-mkdir bin
-wget http://msvocds.blob.core.windows.net/coco2014/train2014.zip
-unzip train2014.zip
-
-# #create folders
+#create folders
 # mkdir data
 # mkdir data/bin
 
@@ -34,7 +26,7 @@ unzip train2014.zip
 python style.py --style examples/style/renoirP.jpg \
   --checkpoint-dir examples/style \
   --test ./examples/content/ry2.jpg \
-  --test-dir  examples/results \
+  --test-dir  /artifacts/  \
   --content-weight 1.5e1 \
   --checkpoint-iterations 1000 \
   --batch-size 20
