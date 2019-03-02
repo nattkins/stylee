@@ -8,4 +8,4 @@ mkdir bin
 wget http://msvocds.blob.core.windows.net/coco2014/train2014.zip
 unzip train2014.zip
 
-sh ./run.sh
+sh ././run.sh
