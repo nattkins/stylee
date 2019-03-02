@@ -1,4 +1,5 @@
 #! /bin/bash
+wget=/usr/bin/wget
 
 mkdir data
 cd data
