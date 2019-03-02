@@ -24,7 +24,7 @@ mkdir data/bin
 #   --batch-size 4 2>&1
 
 python style.py --style examples/style/renoirP.jpg \
-  --checkpoint-dir ./renoirP.ckpt \
+  --checkpoint-dir examples/style \
   --test ./examples/content/ry2.jpg \
   --test-dir  examples/results \
   --content-weight 1.5e1 \
