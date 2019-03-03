@@ -10,8 +10,8 @@ apt-install() {
 
 mkdir data
 cd data
-urlmat = 'http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat'  
-urlzip = 'http://msvocds.blob.core.windows.net/coco2014/train2014.zip'  
+python urlmat = 'http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat'  
+python urlzip = 'http://msvocds.blob.core.windows.net/coco2014/train2014.zip'  
 python wget.download(urlmat)  
 mkdir bin
 cd bin
