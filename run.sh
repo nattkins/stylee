@@ -1,13 +1,13 @@
 #!/bin/bash
 
-APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265"
+APT_PACKAGES="apt-utils wget ffmpeg libav-tools x264 x265"
 apt-install() {
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update -q
 	apt-get install -q -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" $APT_PACKAGES
 	return $?
 }
-app-get install wget
+
 
 
 # #install ffmpeg to container
