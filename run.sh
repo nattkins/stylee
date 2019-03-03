@@ -10,10 +10,13 @@ apt-install() {
 
 mkdir data
 cd data
-python wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
+urlmat = 'http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat'  
+urlzip = 'http://msvocds.blob.core.windows.net/coco2014/train2014.zip'  
+python wget.download(urlmat)  
 mkdir bin
-python wget http://msvocds.blob.core.windows.net/coco2014/train2014.zip
-tar train2014.zip
+cd bin
+python wget.download(urlzip)
+tar -xzvf train2014.zip
 
 
 # #install ffmpeg to container
@@ -30,7 +33,7 @@ tar train2014.zip
 #   --out-path /artifacts/out.mp4 \
 #   --device /gpu:0 \
 #   --batch-size 4 2>&1
-
+cd 
 python style.py --style examples/style/renoirP.jpg \
   --checkpoint-dir examples/style \
   --test ./examples/content/ry2.jpg \
