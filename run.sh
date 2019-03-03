@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265"
+APT_PACKAGES="apt-utils ffmpeg libav-tools x264 x265 wget"
 apt-install() {
 	export DEBIAN_FRONTEND=noninteractive
 	apt-get update -q
@@ -8,15 +8,6 @@ apt-install() {
 	return $?
 }
 
-mkdir data
-cd data
-python urlmat = 'http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat'  
-python urlzip = 'http://msvocds.blob.core.windows.net/coco2014/train2014.zip'  
-python wget.download(urlmat)  
-mkdir bin
-cd bin
-python wget.download(urlzip)
-tar -xzvf train2014.zip
 
 
 # #install ffmpeg to container
@@ -33,7 +24,15 @@ tar -xzvf train2014.zip
 #   --out-path /artifacts/out.mp4 \
 #   --device /gpu:0 \
 #   --batch-size 4 2>&1
-cd 
+
+mkdir data
+cd data
+wget http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat
+mkdir bin
+wget http://msvocds.blob.core.windows.net/coco2014/train2014.zip
+tar train2014.zip
+cd
+
 python style.py --style examples/style/renoirP.jpg \
   --checkpoint-dir examples/style \
   --test ./examples/content/ry2.jpg \
